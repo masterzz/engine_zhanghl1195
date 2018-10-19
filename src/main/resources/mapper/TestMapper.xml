@@ -4,7 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <!-- namespace : 命名空间 -->
 <mapper namespace="com.unicom.engine_three.mapper.TestMapper">
+
+	<resultMap type="Test" id="testResultMap">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+	</resultMap>
+
+
+	<!--测试数据库连接-->
 	<select id="selectById" parameterType="java.lang.Integer" resultType="Test">
 		SELECT id ,username  FROM peixun_group3_test where id = #{id}
 	</select>
+
+	<!--测试分页-->
+	<select id="selectAll" resultMap="testResultMap">
+		SELECT id ,username  FROM peixun_group3_test
+	</select>
+
+
+
+
+
+
+
 </mapper>

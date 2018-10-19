@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <!-- namespace : 命名空间 -->
+<mapper namespace="com.unicom.engine_three.mapper.UserMapper">
+
+	<select id="getUserByName" parameterType="java.lang.String" resultType="User">
+		SELECT user_id id ,user_name username
+		FROM sys_user
+		where user_name = #{username}
+	</select>
+
+	<select id="getUserByNameAndPassword" parameterType="User" resultType="User">
+		SELECT id , username ,role
+		FROM sys_user_1
+		where username = #{username} and password=#{password}
+	</select>
+
+
+
+</mapper>

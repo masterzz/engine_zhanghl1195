@@ -8,5 +8,6 @@ import com.unicom.engine_three.model.Test;
 
 @Mapper
 public interface TestMapper {
-	public Test selectById(int id);
+	Test selectById(int id);
+	List<Test> selectAll();
 }
