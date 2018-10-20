@@ -13,4 +13,17 @@ public interface UserService {
 
     User getUserByNameAndPassword(User user);
 
+    Map<String,Object> getall(int page, int rows);
+
+    User get(int id) ;
+
+    Map<String,Object>  delete(int id);
+
+    Map<String,Object>  updatebyname(int id,String username,String role);
+
+    Map<String,Object>  add(String username,String password,String role);
+
+
+
+
 }

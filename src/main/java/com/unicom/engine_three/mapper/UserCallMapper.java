@@ -15,7 +15,9 @@ public interface UserCallMapper {
 
     List<UserCall> dayCallTime();
 
-    List<UserCall> dayUseCondition(String day);
+    List<UserCall> dayUseCondition();
 
     List<UserCall> userCondition();
+
+    List<Map<String,Object>> selectJizhan();
 }

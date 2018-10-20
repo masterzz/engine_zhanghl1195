@@ -5,6 +5,13 @@
   <!-- namespace : 命名空间 -->
 <mapper namespace="com.unicom.engine_three.mapper.UserMapper">
 
+	<resultMap type="User" id="userResultMap">
+		<id column="id" property="id" />
+		<result column="username" property="username" />
+        <result column="password" property="password" />
+		<result column="role" property="role" />
+	</resultMap>
+
 	<select id="getUserByName" parameterType="java.lang.String" resultType="User">
 		SELECT user_id id ,user_name username
 		FROM sys_user
@@ -16,6 +23,13 @@
 		FROM sys_user_1
 		where username = #{username} and password=#{password}
 	</select>
+
+
+	<!--获取所有数据-->
+	<select id="selectAllUser" resultMap="userResultMap">
+		SELECT id , username ,password,role  FROM sys_user_1
+  	</select>
+
 
 
 

@@ -1,6 +1,7 @@
 package com.unicom.engine_three.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,16 +31,24 @@ public class UserCallController {
 
     //	使用用户数按时段展示柱状图
     @RequestMapping(value="/dayUseCondition")
-    public List<UserCall> dayUseCondition(String day){
-        return userCallService.dayUseCondition(day);
+    public List<Object> dayUseCondition()
+    {
+        return userCallService.dayUseCondition();
     }
 
     // 根据用户数按时段展示柱状图
     @RequestMapping(value="/userCondition")
-    public List<UserCall> userCondition(){
+    public List<UserCall> userCondition()
+    {
         return  userCallService.userCondition();
     }
 
+    //根据基站统计热力图
+    @RequestMapping(value="/userJizhan")
+    public List<Map<String,Object>> userJizhan()
+    {
+        return  userCallService.userJizhan();
+    }
 
 
 

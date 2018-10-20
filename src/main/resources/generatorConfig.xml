@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+    <!--
+        出现错误：Caused by: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+        解决办法：将本地的MAVEN仓库中的mysql驱动引入进来
+    -->
+<!--
+    <classPathEntry location="C:\Users\GZJF\.m2\repository\mysql\mysql-connector-java\5.1.6\mysql-connector-java-5.1.47.jar"/>
+-->
+
+
+
+  <context id="context1">
+    <commentGenerator>
+    	<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+    	<property name="suppressAllComments" value="true"/>
+    </commentGenerator>
+    <jdbcConnection connectionURL="jdbc:mysql://10.52.200.43:3306/engine_three" driverClass="com.mysql.jdbc.Driver" password="engine" userId="dev" />
+    <!-- <jdbcConnection connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:aaaaaa" driverClass="oracle.jdbc.OracleDriver" password="150851" userId="root" /> -->
+    
+    <javaModelGenerator targetPackage="com.unicom.engine_three.model" targetProject="src/main/java">
+    	<!-- enableSubPackages:是否让schema作为包的后缀 -->
+    	<property name="enableSubPackages" value="false"/>
+    	<!-- 从数据库返回的值被清理前后的空格 -->
+    	<property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+    	<!-- enableSubPackages:是否让schema作为包的后缀 -->
+    	<property name="enableSubPackages" value="false"/>
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="main.java.com.unicom.engine_three.mapper" targetProject="src/main/java" type="XMLMAPPER">
+    	<!-- enableSubPackages:是否让schema作为包的后缀 -->
+		<property name="enableSubPackages" value="false" />
+    </javaClientGenerator>
+    <table tableName="sys_user_1">
+    	<!--  有些表的字段需要指定java类型 -->
+      	<!-- <columnOverride column="???" property="???" /> -->
+    </table>
+  </context>
+</generatorConfiguration>
